@@ -1,0 +1,20 @@
+.loading {
+  display:none !important
+}
+.fit{
+  width: 16%;
+  padding: 10px;
+}
+.modify{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
+}
+.containerr{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+}
