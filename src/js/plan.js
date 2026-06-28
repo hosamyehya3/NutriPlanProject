@@ -57,6 +57,7 @@ export class NutriPlan {
           const index = recipe_card[i].getAttribute("data-index");
           const recipeData = new Recipe();
           recipeData.showRecipeDetails(recipesData[index]);
+          recipeData.getCalories(recipesData[index]);
         });
       }
     } else {
