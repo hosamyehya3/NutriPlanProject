@@ -865,14 +865,14 @@
 
         <!-- Today's Summary with Progress -->
         <div id="foodlog-today-section" class="bg-white rounded-2xl p-6 mb-6 border-2 border-gray-200">
-          <h3 class="text-lg font-bold text-gray-900 mb-4">
+           <h3 class="text-lg font-bold text-gray-900 mb-4">
             <i class="fa-solid fa-fire text-orange-500 mr-2"></i>
             Today's Nutrition
           </h3>
 
-          <!-- Progress Bars -->
+          
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <!-- Calories Progress -->
+           
             <div class="bg-emerald-50 rounded-xl p-4">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-sm font-semibold text-gray-700">Calories</span>
@@ -882,7 +882,7 @@
                 <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
               </div>
             </div>
-            <!-- Protein Progress -->
+           
             <div class="bg-blue-50 rounded-xl p-4">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-sm font-semibold text-gray-700">Protein</span>
@@ -892,7 +892,7 @@
                 <div class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
               </div>
             </div>
-            <!-- Carbs Progress -->
+            
             <div class="bg-amber-50 rounded-xl p-4">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-sm font-semibold text-gray-700">Carbs</span>
@@ -902,7 +902,7 @@
                 <div class="bg-amber-500 h-2.5 rounded-full" style="width: 0%"></div>
               </div>
             </div>
-            <!-- Fat Progress -->
+            
             <div class="bg-purple-50 rounded-xl p-4">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-sm font-semibold text-gray-700">Fat</span>
@@ -914,9 +914,9 @@
             </div>
           </div>
 
-          <!-- Logged Items -->
-          <div class="border-t border-gray-200 pt-4">
-            <div class="flex items-center justify-between mb-3">
+         
+          <div id="cardInFoodlog" class="border-t border-gray-200 pt-4">
+            <div class="flex  items-center justify-between mb-3">
               <h4 class="text-sm font-semibold text-gray-700">
                 Logged Items (0)
               </h4>
@@ -927,16 +927,31 @@
             </div>
 
             <div id="logged-items-list" class="space-y-2">
-              <!-- Empty State -->
-              <div class="text-center py-8 text-gray-500">
+             
+
+
+              <div class=" text-center py-8 text-gray-500">
                 <i class="fa-solid fa-utensils text-4xl mb-3 text-gray-300"></i>
                 <p class="font-medium">No meals logged today</p>
                 <p class="text-sm">
                   Add meals from the Meals page or scan products
                 </p>
               </div>
+
+
+
+               <div class="flex justify-center gap-3">
+                        <a id="meal" href="#meals" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all">
+                            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-plus" data-prefix="fas" data-icon="plus" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z"></path></svg></i>
+                            Browse Recipes
+                        </a>
+                        <a id="prouduct" href="#products" class="nav-link inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+                            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-barcode" data-prefix="fas" data-icon="barcode" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M32 32C14.3 32 0 46.3 0 64L0 448c0 17.7 14.3 32 32 32s32-14.3 32-32L64 64c0-17.7-14.3-32-32-32zm88 0c-13.3 0-24 10.7-24 24l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24zm72 32l0 384c0 17.7 14.3 32 32 32s32-14.3 32-32l0-384c0-17.7-14.3-32-32-32s-32 14.3-32 32zm208-8l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24s-24 10.7-24 24zm-96 0l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg></i>
+                            Scan Product
+                        </a>
+                    </div>
             </div>
-          </div>
+          </div> 
         </div>
 
         <!-- Weekly Overview -->
@@ -1191,8 +1206,24 @@
         </div>
 
 
-
-
+//////////////////
+<div id="empty" class="loading text-center py-12">
+                    <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="text-3xl text-gray-300" data-fa-i2svg=""><svg class="svg-inline--fa fa-utensils" data-prefix="fas" data-icon="utensils" role="img" viewBox="0 0 512 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M63.9 14.4C63.1 6.2 56.2 0 48 0s-15.1 6.2-16 14.3L17.9 149.7c-1.3 6-1.9 12.1-1.9 18.2 0 45.9 35.1 83.6 80 87.7L96 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7 0-6.1-.6-12.2-1.9-18.2L223.9 14.3C223.1 6.2 216.2 0 208 0s-15.1 6.2-15.9 14.4L178.5 149.9c-.6 5.7-5.4 10.1-11.1 10.1-5.8 0-10.6-4.4-11.2-10.2L143.9 14.6C143.2 6.3 136.3 0 128 0s-15.2 6.3-15.9 14.6L99.8 149.8c-.5 5.8-5.4 10.2-11.2 10.2-5.8 0-10.6-4.4-11.1-10.1L63.9 14.4zM448 0C432 0 320 32 320 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-448c0-17.7-14.3-32-32-32z"></path></svg></i>
+                    </div>
+                    <p class="text-gray-500 font-medium mb-2">No food logged today</p>
+                    <p class="text-gray-400 text-sm mb-4">Start tracking your nutrition by logging meals or scanning products</p>
+                    <div class="flex justify-center gap-3">
+                        <a href="#meals" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all">
+                            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-plus" data-prefix="fas" data-icon="plus" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z"></path></svg></i>
+                            Browse Recipes
+                        </a>
+                        <a href="/products" class="nav-link inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+                            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-barcode" data-prefix="fas" data-icon="barcode" role="img" viewBox="0 0 448 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M32 32C14.3 32 0 46.3 0 64L0 448c0 17.7 14.3 32 32 32s32-14.3 32-32L64 64c0-17.7-14.3-32-32-32zm88 0c-13.3 0-24 10.7-24 24l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24zm72 32l0 384c0 17.7 14.3 32 32 32s32-14.3 32-32l0-384c0-17.7-14.3-32-32-32s-32 14.3-32 32zm208-8l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24s-24 10.7-24 24zm-96 0l0 400c0 13.3 10.7 24 24 24s24-10.7 24-24l0-400c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg></i>
+                            Scan Product
+                        </a>
+                    </div>
+                </div>
 
 
 

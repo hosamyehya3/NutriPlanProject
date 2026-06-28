@@ -312,7 +312,39 @@ products_grid.addEventListener("click", (e) => {
   }
 });
 
+const meal = document.getElementById("meal");
+const prouductList = document.getElementById("prouduct");
+meal.addEventListener("click" , ()=>{
+  returrnMeals()
+})
+prouductList.addEventListener("click" , ()=>{
+returrnProuducts()
+})
 
+function returrnMeals(){
+ showCatgory.classList.remove("loading");
+  products_section.classList.add("loading");
+  foodlog_section.classList.add("loading");
+  search_filters.classList.remove("loading");
+  log.classList.remove("loading");
+  all_recipes_section.classList.remove("loading");
+  header.classList.remove("loading");
+  id2.classList.add("loading");
+  id3.classList.add("loading");
+  meal_details.classList.add("loading");
 
+}
 
+function returrnProuducts(){
+ products_section.classList.remove("loading");
+  foodlog_section.classList.add("loading");
+  search_filters.classList.add("loading");
+  log.classList.add("loading");
+  showCatgory.classList.add("loading");
+  all_recipes_section.classList.add("loading");
+  header.classList.add("loading");
+  id2.classList.remove("loading");
+  id3.classList.add("loading");
+  meal_details.classList.add("loading");
+}
 
