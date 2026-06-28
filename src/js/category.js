@@ -51,10 +51,10 @@ export class Category {
 
   async getCategoryData(category) {
     let res = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
+      `https://nutriplan-api.vercel.app/api/meals/filter?category=${category}&page=1&limit=25`,
     );
     const data = await res.json();
-    const meals = data.meals;
+    const meals = data.results;
 
     this.plan.displayRecipes(meals);
   }

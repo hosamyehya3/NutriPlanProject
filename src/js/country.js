@@ -7,10 +7,11 @@ export class Country {
     const showCountry = document.querySelector(".countrys");
 
     let res = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
+      "https://nutriplan-api.vercel.app/api/meals/areas",
     );
     let data = await res.json();
-    let arryOfCountrys = data.meals;
+    
+    let arryOfCountrys = data.results;
 
     let newArrayConutrys = arryOfCountrys.slice(0, 8);
     let box = "";
@@ -20,7 +21,7 @@ export class Country {
            <button 
               class="country px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
             >
-             ${newArrayConutrys[i].strArea}
+             ${newArrayConutrys[i].name}
              </button>
              `;
 
