@@ -102,7 +102,8 @@ confirm_log_meal.addEventListener("click" , ()=>{
   draggable: true
 });
   }
-  this.getFoodLog()
+  
+  this.getFoodLog();
     const log_meal_modal = document.getElementById("log-meal-modal");
 log_meal_modal.classList.add("loading")
 })
@@ -112,174 +113,11 @@ getFoodLog(){
   const foodlog_today_section = document.getElementById("foodlog-today-section");
 
   let resdata = JSON.parse(localStorage.getItem("Card"));
-  // if (resdata) {
 
-  // }
   
   
- 
+  this.DisplayCardInFoodLog(resdata);
 }
-
-
-
-
-
-// getFoodLog(storeKey) {
-//   const foodlog_today_section = document.getElementById("foodlog-today-section");
-//   if (!foodlog_today_section) return;
-
-//   let storedData = JSON.parse(localStorage.getItem(storeKey));
-//   let logList = [];
-//   if (storedData) {
-//     logList = Array.isArray(storedData) ? storedData : [storedData];
-//   }
-
-//   let totalCalories = 0;
-//   let totalProtein = 0;
-//   let totalCarbs = 0;
-//   let totalFat = 0;
-
-//   logList.forEach(item => {
-//     if (item && item.perServing) {
-//       totalCalories += Math.round(item.perServing.calories || 0);
-//       totalProtein += Math.round(item.perServing.protein || 0);
-//       totalCarbs += Math.round(item.perServing.carbs || 0);
-//       totalFat += Math.round(item.perServing.fat || 0);
-//     }
-//   });
-
-//   const targets = { calories: 2000, protein: 50, carbs: 250, fat: 65 };
-
-//   const calcPercent = (current, target) => Math.min((current / target) * 100, 100);
-
-//   let itemsHtml = "";
-//   if (logList.length === 0) {
-//     itemsHtml = `
-//       <div class="text-center py-8 text-gray-500">
-//         <i class="fa-solid fa-utensils text-4xl mb-3 text-gray-300"></i>
-//         <p class="font-medium">No meals logged today</p>
-//         <p class="text-sm">Add meals from the Meals page or scan products</p>
-//       </div>`;
-//   } else {
-//     logList.forEach(item => {
-//       itemsHtml += `
-//         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl mb-2">
-//           <div>
-//             <p class="font-semibold text-sm text-gray-900">${item.recipeName || 'Meal'}</p>
-//             <p class="text-xs text-gray-500">${Math.round(item.perServing?.calories || 0)} kcal | P: ${Math.round(item.perServing?.protein || 0)}g | C: ${Math.round(item.perServing?.carbs || 0)}g</p>
-//           </div>
-//         </div>`;
-//     });
-//   }
-
-//   foodlog_today_section.innerHTML = `
-//     <h3 class="text-lg font-bold text-gray-900 mb-4">
-//       <i class="fa-solid fa-fire text-orange-500 mr-2"></i>
-//       Today's Nutrition
-//     </h3>
-
-//     <!-- Progress Bars -->
-//     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-//       <!-- Calories Progress -->
-//       <div class="bg-emerald-50 rounded-xl p-4">
-//         <div class="flex items-center justify-between mb-2">
-//           <span class="text-sm font-semibold text-gray-700">Calories</span>
-//           <span class="text-sm text-gray-500">${totalCalories} / ${targets.calories} kcal</span>
-//         </div>
-//         <div class="w-full bg-gray-200 rounded-full h-2.5">
-//           <div class="bg-emerald-500 h-2.5 rounded-full" style="width: ${calcPercent(totalCalories, targets.calories)}%"></div>
-//         </div>
-//       </div>
-      
-//       <!-- Protein Progress -->
-//       <div class="bg-blue-50 rounded-xl p-4">
-//         <div class="flex items-center justify-between mb-2">
-//           <span class="text-sm font-semibold text-gray-700">Protein</span>
-//           <span class="text-sm text-gray-500">${totalProtein} / ${targets.protein} g</span>
-//         </div>
-//         <div class="w-full bg-gray-200 rounded-full h-2.5">
-//           <div class="bg-blue-500 h-2.5 rounded-full" style="width: ${calcPercent(totalProtein, targets.protein)}%"></div>
-//         </div>
-//       </div>
-      
-//       <!-- Carbs Progress -->
-//       <div class="bg-amber-50 rounded-xl p-4">
-//         <div class="flex items-center justify-between mb-2">
-//           <span class="text-sm font-semibold text-gray-700">Carbs</span>
-//           <span class="text-sm text-gray-500">${totalCarbs} / ${targets.carbs} g</span>
-//         </div>
-//         <div class="w-full bg-gray-200 rounded-full h-2.5">
-//           <div class="bg-amber-500 h-2.5 rounded-full" style="width: ${calcPercent(totalCarbs, targets.carbs)}%"></div>
-//         </div>
-//       </div>
-      
-//       <!-- Fat Progress -->
-//       <div class="bg-purple-50 rounded-xl p-4">
-//         <div class="flex items-center justify-between mb-2">
-//           <span class="text-sm font-semibold text-gray-700">Fat</span>
-//           <span class="text-sm text-gray-500">${totalFat} / ${targets.fat} g</span>
-//         </div>
-//         <div class="w-full bg-gray-200 rounded-full h-2.5">
-//           <div class="bg-purple-500 h-2.5 rounded-full" style="width: ${calcPercent(totalFat, targets.fat)}%"></div>
-//         </div>
-//       </div>
-//     </div>
-
-//     <!-- Logged Items -->
-//     <div id="cardInFoodlog" class="border-t border-gray-200 pt-4">
-//       <div class="flex items-center justify-between mb-3">
-//         <h4 class="text-sm font-semibold text-gray-700">Logged Items (${logList.length})</h4>
-//         <button id="clear-foodlog" class="text-red-500 hover:text-red-600 text-sm font-medium" 
-//                 style="display: ${logList.length > 0 ? 'block' : 'none'}">
-//           <i class="fa-solid fa-trash mr-1"></i>Clear All
-//         </button>
-//       </div>
-
-//       <div id="logged-items-list" class="space-y-2">
-//         ${itemsHtml}
-//       </div>
-//     </div>
-//   `;
-
-//   const clearBtn = document.getElementById("clear-foodlog");
-//   if (clearBtn) {
-//     clearBtn.addEventListener("click", () => {
-//       localStorage.removeItem(storeKey);
-//       this.getFoodLog(storeKey);
-//     });
-//   }
-// }
-
-// saveDataInLocalStroage(caloriesData) {
-//   const confirm_log_meal = document.getElementById("confirm-log-meal");
-//   if (!confirm_log_meal) return;
-
-//   const clone = confirm_log_meal.cloneNode(true);
-//   confirm_log_meal.parentNode.replaceChild(clone, confirm_log_meal);
-
-//   clone.addEventListener("click", () => {
-//     if (caloriesData) {
-//       let currentLog = JSON.parse(localStorage.getItem("Card")) || [];
-//       if (!Array.isArray(currentLog)) currentLog = [currentLog];
-      
-//       currentLog.push(caloriesData);
-//       localStorage.setItem("Card", JSON.stringify(currentLog));
-
-//       Swal.fire({
-//         title: "Meal Logged!",
-//         icon: "success",
-//         timer: 1500,
-//         showConfirmButton: false
-//       });
-
-//       this.getFoodLog("Card");
-//     }
-
-//     const log_meal_modal = document.getElementById("log-meal-modal");
-//     if (log_meal_modal) log_meal_modal.classList.add("loading");
-//   });
-// }
-
 
   showRecipeDetails(recipe) {
     console.log("reeeeeeeeeeeeeee", recipe);
@@ -369,6 +207,7 @@ getFoodLog(){
       console.log(recipe);
 this.DisplayDetailsInCard(recipe);
 
+
     });
   }
   DisplayDetailsInCard(recipe) {
@@ -384,5 +223,23 @@ nameOfMeal.innerHTML=`${recipe.name}`
 srcMainImg.setAttribute("src" , `${recipe.thumbnail}` )
   }
 
+DisplayCardInFoodLog(resdata){
+  console.log(resdata);
+const NoMeal = document.querySelector(".NoMeal");
+const btns = document.querySelector(".btns");
+const cardInFoodlog = document.getElementById("cardInFoodlog");
+const showCardDetails = document.querySelector(".showCardDetails");
+const srcImage = document.getElementById("srcImage")
+NoMeal.classList.add("loading");
+btns.classList.add("loading");
+showCardDetails.classList.remove("loading");
+
+
+
+
+
+
 
 }
+}
+
